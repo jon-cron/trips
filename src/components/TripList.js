@@ -1,15 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 export default function TripList() {
   const [trips, setTrips] = useState([]);
   const [url, setUrl] = useState("http://localhost:3000/trips");
+
+  const fetchTrips = useCallback(async () => {
+    // NOTE if you alias out functionality from a useEffect function, place all dynamic variables from that function in the useEffect dependencies
+    const response = await fetch(url);
+    const json = await response.json();
+    setTrips(json);
+  }, [url]);
+
   useEffect(() => {
     // NOTE whenever there is variable that is dynamic such a url and can change, place the variable in the dependency array
-    fetch(url)
-      .then((response) => response.json())
-      .then((json) => setTrips(json));
+    fetchTrips();
     // NOTE here is the dependency array
-  }, [url]);
+  }, [fetchTrips]);
   console.log(trips);
 
   return (
