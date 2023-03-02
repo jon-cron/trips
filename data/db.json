@@ -1,0 +1,20 @@
+{
+  "trips": [
+    {
+      "title": "2 night stay",
+      "price": "150"
+    },
+    {
+      "title": "3 night stay",
+      "price": "100"
+    },
+    {
+      "title": "All inclusive",
+      "price": "999"
+    },
+    {
+      "title": "All inclusive",
+      "price": "1"
+    }
+  ]
+}
