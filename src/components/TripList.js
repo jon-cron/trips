@@ -14,6 +14,13 @@ export default function TripList() {
 
   return (
     <div>
+      <button
+        onClick={() => {
+          setUrl("http://localhost:3000/trips/?id=1");
+        }}
+      >
+        search by id
+      </button>
       <h2>TripList</h2>
       <ul>
         {trips.map((trip) => (
