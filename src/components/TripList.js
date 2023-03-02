@@ -1,22 +1,22 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
+import { useFetch } from "../hooks/useFetch.js";
 
 export default function TripList() {
-  const [trips, setTrips] = useState([]);
   const [url, setUrl] = useState("http://localhost:3000/trips");
+  const { data: trips } = useFetch(url);
+  // NOTE if you alias out functionality from a useEffect function, place all dynamic variables from that function in the useEffect dependencies
+  // const fetchTrips = useCallback(async () => {
+  // const response = await fetch(url);
+  //   const json = await response.json();
+  //   setTrips(json);
+  // }, [url]);
 
-  const fetchTrips = useCallback(async () => {
-    // NOTE if you alias out functionality from a useEffect function, place all dynamic variables from that function in the useEffect dependencies
-    const response = await fetch(url);
-    const json = await response.json();
-    setTrips(json);
-  }, [url]);
-
-  useEffect(() => {
-    // NOTE whenever there is variable that is dynamic such a url and can change, place the variable in the dependency array
-    fetchTrips();
-    // NOTE here is the dependency array
-  }, [fetchTrips]);
-  console.log(trips);
+  // NOTE whenever there is variable that is dynamic such a url and can change, place the variable in the dependency array
+  // NOTE here is the dependency array
+  // useEffect(() => {
+  //   fetchTrips();
+  // }, [fetchTrips]);
+  // console.log(trips);
 
   return (
     <div>
@@ -43,7 +43,7 @@ export default function TripList() {
       </button>
       <h2>TripList</h2>
       <ul>
-        {trips.map((trip) => (
+        {trips?.map((trip) => (
           <li key={trip.id}>
             <h2>{trip.title}</h2>
             <p>${trip.price}</p>
