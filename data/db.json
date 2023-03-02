@@ -2,19 +2,23 @@
   "trips": [
     {
       "title": "2 night stay",
-      "price": "150"
+      "price": "150",
+      "id": "1"
     },
     {
       "title": "3 night stay",
-      "price": "100"
+      "price": "100",
+      "id": "2"
     },
     {
       "title": "All inclusive",
-      "price": "999"
+      "price": "999",
+      "id": "3"
     },
     {
       "title": "All inclusive",
-      "price": "1"
+      "price": "1",
+      "id": "4"
     }
   ]
 }
