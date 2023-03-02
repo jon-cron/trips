@@ -21,6 +21,20 @@ export default function TripList() {
       >
         search by id
       </button>
+      <button
+        onClick={() => {
+          setUrl("http://localhost:3000/trips/?loc=america");
+        }}
+      >
+        America
+      </button>
+      <button
+        onClick={() => {
+          setUrl("http://localhost:3000/trips/?loc=europe");
+        }}
+      >
+        Europe
+      </button>
       <h2>TripList</h2>
       <ul>
         {trips.map((trip) => (

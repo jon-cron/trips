@@ -3,22 +3,26 @@
     {
       "title": "2 night stay",
       "price": "150",
-      "id": "1"
+      "id": "1",
+      "loc": "europe"
     },
     {
       "title": "3 night stay",
       "price": "100",
-      "id": "2"
+      "id": "2",
+      "loc": "europe"
     },
     {
       "title": "All inclusive",
       "price": "999",
-      "id": "3"
+      "id": "3",
+      "loc": "europe"
     },
     {
       "title": "All inclusive",
       "price": "1",
-      "id": "4"
+      "id": "4",
+      "loc": "america"
     }
   ]
 }
