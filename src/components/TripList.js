@@ -3,7 +3,7 @@ import { useFetch } from "../hooks/useFetch.js";
 
 export default function TripList() {
   const [url, setUrl] = useState("http://localhost:3000/trips");
-  const { data: trips, isPending } = useFetch(url);
+  const { data: trips, isPending, error } = useFetch(url);
   // NOTE if you alias out functionality from a useEffect function, place all dynamic variables from that function in the useEffect dependencies
   // const fetchTrips = useCallback(async () => {
   // const response = await fetch(url);
@@ -43,6 +43,7 @@ export default function TripList() {
       </button>
       <h2>TripList</h2>
       {isPending && <div>Loading Trips...</div>}
+      {error && <div>{error}</div>}
       <ul>
         {trips?.map((trip) => (
           <li key={trip.id}>

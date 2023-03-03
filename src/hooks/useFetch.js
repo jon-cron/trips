@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export const useFetch = (url) => {
   const [data, setData] = useState(null);
@@ -10,19 +10,22 @@ export const useFetch = (url) => {
       setIsPending(true);
 
       try {
-        const response = await fetch(url);
-        const json = await response.json();
+        const res = await fetch(url);
+        if (!res.ok) {
+          throw new Error(res.statusText);
+        }
+        const json = await res.json();
         setIsPending(false);
         setData(json);
         setError(null);
-      } catch (error) {
+      } catch (err) {
         setIsPending(false);
         setError("Bad Request");
-        console.log(error.message);
+        console.log(err.message);
       }
     };
     fetchData();
   }, [url]);
 
-  return { data, isPending };
+  return { data, isPending, error };
 };
